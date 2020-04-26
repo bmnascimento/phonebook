@@ -97,8 +97,9 @@ const App = () => {
           setNotificationMessage(`${newName} added!`)
           setTimeout(() => setNotificationMessage(null), 3000)
         })
-        .catch(() => {
-          window.alert('failed to add person')
+        .catch(error => {
+          setErrorMessage(error.response.data.error)
+          setTimeout(() => setErrorMessage(null), 3000)
         })
     }
 
